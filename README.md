@@ -28,7 +28,7 @@ Related commands are listed below.
 
 ```
 cd ~
-git clone git@github.ibm.com:rsundara/cp4i-datapower.git
+git clone git@github.com:rsundara/cp4i-datapower.git
 ```
 
 

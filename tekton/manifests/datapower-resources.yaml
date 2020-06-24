@@ -7,6 +7,6 @@ items:
   spec:
     params:
     - name: url
-      value: https://github.ibm.com/rsundara/cp4i-datapower
+      value: https://github.com/rsundara/cp4i-datapower
     type: git
 kind: List
