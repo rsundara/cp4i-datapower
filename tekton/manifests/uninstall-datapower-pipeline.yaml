@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: uninstall-datapower
+spec:
+  params:
+    - name: dpconfig
+      description: Specify the DataPower configuration to be used for uninstalling the service.
+      default: dp-demo
+    - name: env
+      default: "dev"
+      description: Specfiy the current environment. The value is used in computing the DataPowerService name.
+
+  resources:
+    - name: source
+      type: git
+  tasks:
+    - name: uninstall-datapower
+      taskRef:
+        name: uninstall-datapower
+      params:
+      - name: dpconfig
+        value: $(params.dpconfig)
+      - name: env
+        value: $(params.env)
+      
+      resources:
+        inputs:
+        - name: source
+          resource: source

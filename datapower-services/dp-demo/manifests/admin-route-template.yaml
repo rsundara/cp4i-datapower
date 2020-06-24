@@ -1,0 +1,17 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: dp-admin
+spec:
+  host: >-
+    PARM_DP_ADMIN_HOST_NAME
+  to:
+    kind: Service
+    name: dp-demo-service
+    weight: 100
+  port:
+    targetPort: dp-admin
+  tls:
+    termination: passthrough
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

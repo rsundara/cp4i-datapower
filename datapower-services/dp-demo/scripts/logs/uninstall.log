@@ -1,0 +1,17 @@
+$ ./uninstall.sh 
+
+Uninstall IBM DataPower Service
+
+Already on project "cp4i-datapower" on server "https://c100-e.us-south.containers.cloud.ibm.com:32508".
+datapowerservice.datapower.ibm.com "dp-demo-dev" deleted
+configmap "web-mgmt" deleted
+configmap "idp-config" deleted
+configmap "idp-local" deleted
+secret "idp-sscert" deleted
+secret "idp-privkey" deleted
+secret "admin-credentials" deleted
+service "dp-demo-service" deleted
+route.route.openshift.io "dp-admin" deleted
+route.route.openshift.io "dp-demo" deleted
+
+Uninstall of IBM DataPower Service is now complete

@@ -1,0 +1,12 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: dp-demo
+spec:
+  serviceAccountName: pipeline
+  triggers:
+  - name: commitrequest-datapower-install
+    bindings:
+    - name: dp-demo-trigger-binding
+    template:
+      name: dp-demo-trigger-template

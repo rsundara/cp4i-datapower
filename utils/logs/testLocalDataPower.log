@@ -1,0 +1,90 @@
+20200622T220604.535Z [0x8040006b][system][notice] logging target(default-log): Logging started.
+20200622T220604.640Z [0x804000fe][system][notice] : Container instance UUID: 2ae596f6-7e87-4ba3-b0be-e17acbcceb12, Cores: 4, vCPUs: 4, CPU model: Intel(R) Core(TM) i7-7820HQ CPU @ 2.90GHz, Memory: 4096.0MB, Platform: docker, OS: dpos, Edition: developers-limited, Up time: 0 minutes
+20200622T220604.683Z [0x8040001c][system][notice] : DataPower IDG is on-line.
+20200622T220604.683Z [0x8100006f][system][notice] : Executing default startup configuration.
+20200622T220605.285Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220605.286Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220605.286Z [0x04f30005][cli][error] apic-gw-service(default): The effective gateway peering object is down
+20200622T220605.286Z [0x00350015][mgmt][notice] api-security-token-manager(default): tid(1071): Operational state down
+20200622T220605.398Z [0x8100006d][system][notice] : Executing system configuration.
+20200622T220605.399Z [0x8100006b][mgmt][notice] domain(default): tid(8863): Domain operational state is up.
+7220ceeda498
+Unauthorized access prohibited.
+20200622T220608.506Z [0x8040009e][system][notice] throttle(Throttler): tid(1679): Setting throttle thresholds: Memory(-1.000000,-1.000000), Temporary-FS(0.000000,0.000000), XML-Names(0.100000), Timeout(30)
+20200622T220608.509Z [0x8040009e][system][notice] throttle(Throttler): tid(1679): Setting throttle thresholds: Memory(-1.000000,-1.000000), Temporary-FS(0.000000,0.000000), XML-Names(0.100000), Timeout(30)
+20200622T220608.588Z [0x806000dd][system][notice] cert-monitor(Certificate Monitor): tid(415): Enabling Certificate Monitor to scan once every 1 days for soon to expire certificates
+20200622T220609.166Z [0x8100006e][system][notice] : Executing startup configuration.
+20200622T220609.214Z [0x8040009e][system][notice] throttle(Throttler): tid(1679): Setting throttle thresholds: Memory(-1.000000,-1.000000), Temporary-FS(0.000000,0.000000), XML-Names(0.100000), Timeout(30)
+20200622T220609.249Z [0x00350015][mgmt][notice] b2b-persistence(B2BPersistence): tid(111): Operational state down
+20200622T220609.426Z [0x0034000d][mgmt][warn] ssh(SSH Service): tid(111): Object is disabled
+login: 20200622T220609.526Z [0x00350014][mgmt][notice] quota-enforcement-server(QuotaEnforcementServer): tid(831): Operational state up
+20200622T220609.701Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220609.707Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220609.707Z [0x00350015][mgmt][notice] api-security-token-manager(default): tid(1071): Operational state down
+20200622T220609.708Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220609.711Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220609.712Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220609.712Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220609.712Z [0x00350015][mgmt][notice] api-security-token-manager(default): tid(1071): Operational state down
+20200622T220609.719Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220609.721Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220609.721Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220609.725Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220609.729Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220609.729Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220609.735Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220609.735Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220609.750Z [0x04f30005][mgmt][error] apic-gw-service(default): tid(1007): The effective gateway peering object is down
+20200622T220609.753Z [0x04f30005][cli][error] apic-gw-service(default): The effective gateway peering object is down
+20200622T220609.756Z [0x00350015][mgmt][notice] apiprobe-settings(default): tid(1103): Operational state down
+20200622T220609.811Z [0x00350015][mgmt][notice] quota-enforcement-server(QuotaEnforcementServer): tid(831): Operational state down
+20200622T220609.835Z [0x00350014][mgmt][notice] web-mgmt(WebGUI-Settings): tid(303): Operational state up
+20200622T220609.894Z [0x8100006b][mgmt][notice] domain(IDP): tid(29647): Domain operational state is up.
+20200622T220609.904Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'logtemp:'
+20200622T220609.905Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'logstore:'
+20200622T220609.905Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'temporary:'
+20200622T220609.905Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'export:'
+20200622T220609.907Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'chkpoints:'
+20200622T220609.908Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'policyframework:'
+20200622T220609.908Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'dpnfsstatic:'
+20200622T220609.908Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'dpnfsauto:'
+20200622T220609.908Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'ftp-response:'
+20200622T220609.910Z [0x8100001f][mgmt][notice] domain(IDP): tid(29647): Created domain folder 'xm70store:'
+20200622T220609.940Z [0x00350014][mgmt][notice] quota-enforcement-server(QuotaEnforcementServer): tid(831): Operational state up
+20200622T220609.948Z [0x8100003b][mgmt][notice] domain(default): Domain configured successfully.
+20200622T220610.416Z [IDP][0x8040006b][system][notice] logging target(default-log): tid(111): Logging started.
+20200622T220611.082Z [IDP][0x00350015][mgmt][notice] apiprobe-settings(default): tid(418): Operational state down
+20200622T220611.085Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220611.086Z [IDP][0x04f30005][cli][error] apic-gw-service(default): The effective gateway peering object is down
+20200622T220611.087Z [IDP][0x00350015][mgmt][notice] api-security-token-manager(default): tid(386): Operational state down
+20200622T220612.350Z [IDP][0x00350014][mgmt][notice] action(IDPPolicy_AuthenticateBasic_aaa_0): tid(111): Operational state up
+20200622T220612.350Z [IDP][0x00350014][mgmt][notice] rule(IDPPolicy_AuthenticateBasic): tid(111): Operational state up
+20200622T220612.354Z [IDP][0x00350014][mgmt][notice] action(IDPPolicy_localFile_aaa_0): tid(111): Operational state up
+20200622T220612.354Z [IDP][0x00350014][mgmt][notice] rule(IDPPolicy_localFile): tid(111): Operational state up
+20200622T220612.359Z [IDP][0x00350014][mgmt][notice] action(IDPPolicy_Authenticate_aaa_0): tid(111): Operational state up
+20200622T220612.363Z [IDP][0x00350014][mgmt][notice] action(IDPPolicy_GetToken_aaa_0): tid(111): Operational state up
+20200622T220612.363Z [IDP][0x00350014][mgmt][notice] rule(IDPPolicy_GetToken): tid(111): Operational state up
+20200622T220612.371Z [IDP][0x00350014][mgmt][notice] action(IDPPolicy_Authenticate_aaa_1): tid(111): Operational state up
+20200622T220612.371Z [IDP][0x00350014][mgmt][notice] rule(IDPPolicy_Authenticate): tid(111): Operational state up
+20200622T220612.379Z [IDP][0x00350014][mgmt][notice] action(IDPPolicy_validate_aaa_0): tid(111): Operational state up
+20200622T220612.379Z [IDP][0x00350014][mgmt][notice] rule(IDPPolicy_validate): tid(111): Operational state up
+20200622T220612.380Z [IDP][0x00350014][mgmt][notice] stylepolicy(IDPPolicy): tid(111): Operational state up
+20200622T220612.388Z [IDP][0x00330019][mgmt][error] source-https(IDP-FSH): tid(111): Operation state transition to up failed
+20200622T220612.394Z [IDP][0x00330019][mgmt][error] source-https(IDP-FSH-Login): tid(111): Operation state transition to up failed
+20200622T220612.418Z [IDP][0x00350015][mgmt][notice] api-security-token-manager(default): tid(386): Operational state down
+20200622T220612.418Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220612.418Z [IDP][0x00350015][mgmt][notice] apiprobe-settings(default): tid(418): Operational state down
+20200622T220612.421Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220612.421Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220612.421Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220612.421Z [IDP][0x00350015][mgmt][notice] api-security-token-manager(default): tid(386): Operational state down
+20200622T220612.428Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220612.432Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220612.432Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220612.477Z [IDP][0x04f30005][mgmt][error] apic-gw-service(default): tid(322): The effective gateway peering object is down
+20200622T220612.478Z [IDP][0x04f30005][cli][error] apic-gw-service(default): The effective gateway peering object is down
+20200622T220612.479Z [IDP][0x00350015][mgmt][notice] apiprobe-settings(default): tid(418): Operational state down
+20200622T220612.523Z [IDP][0x00350016][mgmt][notice] source-https(IDP-FSH): tid(111): Service installed on port
+20200622T220612.523Z [IDP][0x00350014][mgmt][notice] source-https(IDP-FSH): tid(111): Operational state up
+20200622T220612.523Z [IDP][0x00350014][mgmt][notice] mpgw(IDP): tid(111): Operational state up
+20200622T220612.531Z [0x8100003b][mgmt][notice] domain(IDP): Domain configured successfully.

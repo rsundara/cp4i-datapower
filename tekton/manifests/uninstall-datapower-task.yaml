@@ -1,0 +1,40 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: uninstall-datapower
+spec:
+  inputs:
+    resources:
+    - name: source
+      type: git
+    params:
+    - name: dpconfig
+      description: Specify the DataPower configuration to be used for uninstalling the service.
+      default: dp-demo
+    - name: env
+      default: "dev"
+      description: Specfiy the current environment. The value is used in computing the DataPowerService name.
+  steps:
+  - name: uninstall-instance
+    image: docker.io/rsundara/cp4i-setup
+    workingdir: /workspace/source
+    env:
+      - name: DATAPOWER_CONFIG
+        value: $(inputs.params.dpconfig) 
+      - name: ENV
+        value: $(inputs.params.env) 
+      - name: SERVICE_NAME
+        value: $(inputs.params.dpconfig)-$(inputs.params.env) 
+            
+    command: ["/bin/sh"]
+    args:
+      - -c
+      - |
+        set -eu;
+        echo DataPower Config : $DATAPOWER_CONFIG;
+        echo Servic Name      : $SERVICE_NAME;
+        
+        cd ./datapower-services/$DATAPOWER_CONFIG/scripts
+        
+        echo "Running uninstall.sh";
+        sh uninstall.sh;

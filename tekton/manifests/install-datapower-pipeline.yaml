@@ -1,0 +1,35 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: install-datapower
+spec:
+  params:
+    - name: dpconfig
+      description: Specify the DataPower configuration to be used for installing the service.
+      default: dp-demo
+    - name: env
+      default: "dev"
+      description: Specfiy the current environment. The value is used in computing the DataPowerService name.
+    - name: production
+      default: "false"
+      description: Specifies if the deployment is production-like with High Availability enabled. Default [false]
+      
+  resources:
+    - name: source
+      type: git
+      
+  tasks:
+    - name: install-datapower
+      taskRef:
+        name: install-datapower
+      params:
+      - name: production
+        value: $(params.production)
+      - name: env
+        value: $(params.env)
+      - name: dpconfig
+        value: $(params.dpconfig)
+      resources:
+        inputs:
+        - name: source
+          resource: source

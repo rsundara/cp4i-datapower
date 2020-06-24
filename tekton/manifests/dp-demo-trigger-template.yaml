@@ -1,0 +1,42 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: dp-demo-trigger-template
+spec:
+  params:
+  - name: URL
+    description: The repository url to build and deploy.
+  - name: REVISION
+    description: The revision to build and deploy.
+  - name: DATAPOWER_SERVICE_NAME
+    description: DataPower service name
+  - name: ENVIRONMENT
+    description: suffix to the datapowerService name
+  - name: PRODUCTION
+    description: Specifies if the deployment is production-like with High Availability enabled. Default [false]
+    
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      generateName: install-datapower-run-
+    spec:
+      serviceAccountName: dp-demo
+      pipelineRef:
+        name: install-datapower
+      resources:
+      - name: source
+        resourceSpec:
+          type: git
+          params:
+          - name: revision
+            value: $(params.REVISION)
+          - name: url
+            value: $(params.URL)
+      params:
+      - name: dpconfig
+        value: $(params.DATAPOWER_SERVICE_NAME)
+      - name: env
+        value: $(params.ENVIRONMENT)
+      - name: production
+        value: $(params.PRODUCTION)

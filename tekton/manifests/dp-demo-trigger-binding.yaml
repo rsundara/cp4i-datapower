@@ -1,0 +1,16 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  name: dp-demo-trigger-binding
+spec:
+  params:
+  - name: URL
+    value: $(body.repository.clone_url)
+  - name: REVISION
+    value: $(body.pull_request.head.sha)
+  - name: DATAPOWER_SERVICE_NAME
+    value: dp-demo
+  - name: ENVIRONMENT
+    value: dev
+  - name: PRODUCTION
+    value: "false"

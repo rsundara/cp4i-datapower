@@ -1,0 +1,205 @@
+$ ./install.sh 
+
+Install IBM DataPower Service
+
+Already on project "cp4i-datapower" on server "https://c100-e.us-south.containers.cloud.ibm.com:32508".
+
+Contents of ../manifests/datapowerservice.yaml
+
+apiVersion: datapower.ibm.com/v1beta1
+kind: DataPowerService
+metadata:
+  name: dp-demo-dev
+  labels:
+    app.kubernetes.io/instance: dp-demo-dev
+    app.kubernetes.io/name: dp-demo-dev
+    app.kubernetes.io/managed-by: datapower-operator
+spec:
+  debug: false
+  license:
+    accept: true
+    use: developers
+  version: 10.0.0
+  replicas: 1
+  resources:
+    requests:
+      cpu: 4
+      memory: 8Gi
+    limits:
+      memory: 8Gi
+  users:
+  - name: admin
+    passwordSecret: admin-credentials
+    accessLevel: privileged
+  env:
+  - name: DATAPOWER_LOG_LEVEL
+    value: "3" 
+  image: docker.io/ibmcom/datapower:latest
+  domains:
+  - name: "default"
+    dpApp:
+      config:
+      - "web-mgmt"
+  - name: "IDP"
+    certs:
+    - certType: "usrcerts"
+      secret: "idp-privkey"
+    - certType: "usrcerts"
+      secret: "idp-sscert"
+    dpApp:
+      config:
+      - "idp-config"
+      local:
+      - "idp-local"
+  datapowerMonitor:
+    image: docker.io/ibmcom/datapower-monitor:latest
+    lifecycleDebounceMs: 10000
+    peeringRecoveryCheckIntervalMs: 1000
+    monitorGatewayPeering: false
+    livenessProbePort: 8080
+    xmlMgmtPort: 5550
+    resources:
+      requests:
+        cpu: 250m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+    env:
+    - name: K8S_DPM_DEBUG
+    value: "*"
+  livenessProbe:
+    failureThreshold: 3
+    httpGet:
+      path: /
+      port: 7879
+      scheme: HTTP
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
+    timeoutSeconds: 5
+  readinessProbe:
+    failureThreshold: 3
+    httpGet:
+      path: /
+      port: 7879
+      scheme: HTTP
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
+    timeoutSeconds: 5
+
+
+
+Contents of ../manifests/service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: datapower
+    app.kubernetes.io/instance: datapower-operator-dpservice
+    app.kubernetes.io/managed-by: datapower-operator
+    app.kubernetes.io/name: datapower
+    app.kubernetes.io/version: 10.0.0.0
+  name: dp-demo-service
+spec:
+  ports:
+# Admin port 9090 is exposed as service
+  - name: dp-admin
+    port: 9090
+    protocol: TCP
+    targetPort: 9090
+# App port 6443 is exposed as service
+  - name: app-https
+    port: 6443
+    protocol: TCP
+    targetPort: 6443
+  selector:
+    app.kubernetes.io/instance: cp4i-datapower-dp-demo-dev
+    app.kubernetes.io/name: datapower
+  type: NodePort
+
+
+
+Contents of ../manifests/admin-route.yaml
+
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: dp-admin
+spec:
+  host: >-
+    dp-admin.demo-cp4i-387708-0143c5dd31acd8e030a1d6e0ab1380e3-0000.us-south.containers.appdomain.cloud
+  to:
+    kind: Service
+    name: dp-demo-service
+    weight: 100
+  port:
+    targetPort: dp-admin
+  tls:
+    termination: passthrough
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+
+
+Contents of ../manifests/app-route.yaml
+
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: dp-demo
+spec:
+  host: >-
+    dp-demo.demo-cp4i-387708-0143c5dd31acd8e030a1d6e0ab1380e3-0000.us-south.containers.appdomain.cloud
+  to:
+    kind: Service
+    name: dp-demo-service
+    weight: 100
+  port:
+    targetPort: app-https
+  tls:
+    termination: passthrough
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+
+a .
+a ./IDP_validateToken.xsl
+a ./IDP_getToken.xsl
+a ./IDP_readDemoFile.js
+a ./IDP_dputils.xsl
+a ./AAAInfoPolicy.xml
+a ./IDP_readLocalFile.js
+a ./IDP_redirectUrl.js
+a ./demo.html
+a ./IDP_extractToken.xsl
+
+Create configMap objects to store application domain configurations
+
+Error from server (NotFound): configmaps "web-mgmt" not found
+configmap/web-mgmt created
+Error from server (NotFound): configmaps "idp-config" not found
+configmap/idp-config created
+Error from server (NotFound): configmaps "idp-local" not found
+configmap/idp-local created
+
+Create secrets to store the certificates
+
+Error from server (NotFound): secrets "idp-privkey" not found
+secret/idp-privkey created
+Error from server (NotFound): secrets "idp-sscert" not found
+secret/idp-sscert created
+Error from server (NotFound): secrets "admin-credentials" not found
+secret/admin-credentials created
+
+Create service and routes
+
+service/dp-demo-service created
+route.route.openshift.io/dp-admin created
+route.route.openshift.io/dp-demo created
+
+Create DataPower service
+
+datapowerservice.datapower.ibm.com/dp-demo-dev created
+
+Install of IBM DataPower Service is now complete

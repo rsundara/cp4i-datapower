@@ -1,0 +1,82 @@
+apiVersion: datapower.ibm.com/v1beta1
+kind: DataPowerService
+metadata:
+  name: PARM_DP_SERVICE_NAME
+  labels:
+    app.kubernetes.io/instance: PARM_DP_SERVICE_NAME
+    app.kubernetes.io/name: PARM_DP_SERVICE_NAME
+    app.kubernetes.io/managed-by: datapower-operator
+spec:
+  debug: false
+  license:
+    accept: true
+    use: developers
+  version: 10.0.0
+  replicas: PARM_REPLICA_COUNT
+  resources:
+    requests:
+      cpu: PARM_LIMITS_CPU
+      memory: PARM_LIMITS_MEMORY
+    limits:
+      memory: PARM_LIMITS_MEMORY
+  users:
+  - name: admin
+    passwordSecret: admin-credentials
+    accessLevel: privileged
+  env:
+  - name: DATAPOWER_LOG_LEVEL
+    value: "3" 
+  image: docker.io/ibmcom/datapower:latest
+  domains:
+  - name: "default"
+    dpApp:
+      config:
+      - "web-mgmt"
+  - name: "IDP"
+    certs:
+    - certType: "usrcerts"
+      secret: "idp-privkey"
+    - certType: "usrcerts"
+      secret: "idp-sscert"
+    dpApp:
+      config:
+      - "idp-config"
+      local:
+      - "idp-local"
+  datapowerMonitor:
+    image: docker.io/ibmcom/datapower-monitor:latest
+    lifecycleDebounceMs: 10000
+    peeringRecoveryCheckIntervalMs: 1000
+    monitorGatewayPeering: false
+    livenessProbePort: 8080
+    xmlMgmtPort: 5550
+    resources:
+      requests:
+        cpu: 250m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+    env:
+    - name: K8S_DPM_DEBUG
+    value: "*"
+  livenessProbe:
+    failureThreshold: 3
+    httpGet:
+      path: /
+      port: 7879
+      scheme: HTTP
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
+    timeoutSeconds: 5
+  readinessProbe:
+    failureThreshold: 3
+    httpGet:
+      path: /
+      port: 7879
+      scheme: HTTP
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
+    timeoutSeconds: 5

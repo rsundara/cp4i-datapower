@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AAAInfo xmlns="http://www.datapower.com/AAAInfo">
+   <FormatVersion>1</FormatVersion>
+   <Filename>local:///AAAInfoPolicy.xml</Filename>
+   <Summary>AAA Policy Info XML file</Summary>
+   <Authenticate>
+      <Username>admin</Username>
+      <Password>Passw0rd!</Password>
+      <OutputCredential>admin</OutputCredential>
+   </Authenticate>
+</AAAInfo>
