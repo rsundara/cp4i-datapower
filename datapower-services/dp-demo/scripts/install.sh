@@ -6,7 +6,7 @@ echo
 
 # Set the project
 PROJECT=cp4i-datapower
-oc project $PROJECT
+oc new-project $PROJECT
 
 # Define the location of the directories
 CONFIG_DIR=../drouter/config
