@@ -42,7 +42,7 @@ kubectl apply --filename https://github.com/tektoncd/dashboard/releases/download
 The tekton dashboard can be accessed using the following route: 
 
 ```
-kubectl get route tekton-dashboard -n tekton-pipelines
+kubectl get route tekton-dashboard -n openshift-pipelines
 ```
 
 
