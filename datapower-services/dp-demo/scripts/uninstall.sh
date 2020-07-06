@@ -5,7 +5,7 @@ echo "Uninstall IBM DataPower Service"
 echo
 
 # Set the project
-PROJECT=cp4i-datapower
+PROJECT=datapower
 oc project $PROJECT
 
 # Define the location of the directories

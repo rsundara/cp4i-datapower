@@ -4,7 +4,7 @@ echo "Start deleting resources created for the Tekton pipeline"
 echo 
 
 
-oc project cp4i-datapower
+oc project datapower
 
 oc delete -f ./manifests/datapower-secrets.yaml
 oc delete -f ./manifests/datapower-resources.yaml

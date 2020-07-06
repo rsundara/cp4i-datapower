@@ -63,7 +63,7 @@ The script [createTektonResources.sh](./createTektonResources.sh) can be run to 
 * [uninstall-datapower-pipeline.yaml](./manifests/uninstall-datapower-pipeline.yaml)
 * [uninstall-datapower-task.yaml](./manifests/uninstall-datapower-task.yaml)
 
-Note that the scripts are designed to create the Tekton resources in the project **cp4i-datapower**
+Note that the scripts are designed to create the Tekton resources in the project **datapower**
 
 The contents of the script file [initConfig.sh](./initConfig.sh) needs to be updated to suit the environment.
 
@@ -95,7 +95,7 @@ Sample run is listed below:
 
 ```
 $ ./createTektonResources.sh 
-Already on project "cp4i-datapower" on server "https://c100-e.us-south.containers.cloud.ibm.com:32508".
+Already on project "datapower" on server "https://c100-e.us-south.containers.cloud.ibm.com:32508".
 
 You can add applications to this project with the 'new-app' command. For example, try:
 
@@ -173,7 +173,7 @@ The PipelineRun having the results is listed below.
 The following command can be run to retrieve the route for the demo service: 
 
 ```
-oc get routes -n cp4i-datapower | grep dp-demo | awk -F' ' '{print $2 }'
+oc get routes -n datapower | grep dp-demo | awk -F' ' '{print $2 }'
 ```
  
 The demo service can be verified by accessing route for the target port **6443** using the link **[https://dp-demo.OPENSHIFT_CLUSTER_DOMAIN_SUFFIX:6443/demo.html](https://dp-demo.OPENSHIFT_CLUSTER_DOMAIN_SUFFIX:6443/demo.html)**
@@ -263,7 +263,7 @@ Your new pull request will kick off the PipelineRun to build and deploy your bra
 The following command can be run to retrieve the route for the demo service: 
 
 ```
-oc get routes -n cp4i-datapower | grep dp-demo | awk -F' ' '{print $2 }'
+oc get routes -n datapower | grep dp-demo | awk -F' ' '{print $2 }'
 ```
  
 The demo service can be verified by accessing route for the target port **6443** using the link **[https://dp-demo.OPENSHIFT_CLUSTER_DOMAIN_SUFFIX:6443/demo.html](https://dp-demo.OPENSHIFT_CLUSTER_DOMAIN_SUFFIX:6443/demo.html)**

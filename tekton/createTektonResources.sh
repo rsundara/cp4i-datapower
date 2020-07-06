@@ -3,7 +3,7 @@
 echo "Start creating resources for the Tekton pipeline"
 echo 
 
-oc new-project cp4i-datapower
+oc new-project datapower
 
 # Update the initial configuration
 . ./initConfig.sh

@@ -2,7 +2,7 @@ $ ./install.sh
 
 Install IBM DataPower Service
 
-Already on project "cp4i-datapower" on server "https://c100-e.us-south.containers.cloud.ibm.com:32508".
+Already on project "datapower" on server "https://c100-e.us-south.containers.cloud.ibm.com:32508".
 
 Contents of ../manifests/datapowerservice.yaml
 
@@ -116,7 +116,7 @@ spec:
     protocol: TCP
     targetPort: 6443
   selector:
-    app.kubernetes.io/instance: cp4i-datapower-dp-demo-dev
+    app.kubernetes.io/instance: datapower-dp-demo-dev
     app.kubernetes.io/name: datapower
   type: NodePort
 

@@ -107,7 +107,7 @@ Sample install log is available for reference [installDataPower.log](./datapower
 The following command can be run to retrieve the route for the admin service: 
 
 ```
-oc get routes -n cp4i-datapower | grep dp-admin | awk -F' ' '{print $2 }'
+oc get routes -n datapower | grep dp-admin | awk -F' ' '{print $2 }'
 ```
 
 The admin access can be verified by accessing route for the target port **9090** using the link **[https://dp-admin.OPENSHIFT_CLUSTER_DOMAIN_SUFFIX:9090/](https://dp-admin.OPENSHIFT_CLUSTER_DOMAIN_SUFFIX:9090/)** 
@@ -117,7 +117,7 @@ The admin access can be verified by accessing route for the target port **9090**
 The following command can be run to retrieve the route for the demo service: 
 
 ```
-oc get routes -n cp4i-datapower | grep dp-demo | awk -F' ' '{print $2 }'
+oc get routes -n datapower | grep dp-demo | awk -F' ' '{print $2 }'
 ```
  
 The demo service can be verified by accessing route for the target port **6443** using the link **[https://dp-demo.OPENSHIFT_CLUSTER_DOMAIN_SUFFIX:6443/demo.html](https://dp-demo.OPENSHIFT_CLUSTER_DOMAIN_SUFFIX:6443/demo.html)**
