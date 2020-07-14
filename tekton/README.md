@@ -3,7 +3,7 @@
 
 Once the [**IBM DataPower operator v1.0.0**](../README.md#3-install-datapower-operator) is installed in the Red Hat OpenShift environment, OpenShift pipelines can be used to continuously deploy **IBM DataPowerService** instance. 
 
-OpenShift pipelines are now available to execute the following two tasks in **Red Hat OpenShift Cluster Version 4.3**
+OpenShift pipelines are now available to execute the following two tasks in **Red Hat OpenShift Cluster Version 4.4**
 
 - [Install DataPowerService instance](#31-pipeline-for-installing-an-datapowerservice-instance)
 - [Uninstall DataPowerService instance](#32-pipeline-for-uninstalling-an-datapowerservice-instance)
