@@ -1,7 +1,7 @@
 
 # Deploy IBM DataPowerService Custom Resource Definition in Red Hat OpenShift Cluster Platform v4.4
 
-The [IBM DataPower operator v1.0.0](https://hub.docker.com/r/ibmcom/datapower-operator) is now available. The **IBM DataPower Operator** deploys and 
+The [IBM DataPower operator v1.0.1](https://hub.docker.com/r/ibmcom/datapower-operator) is now available. The **IBM DataPower Operator** deploys and 
 manages configurations defined by the **DataPowerService** Custom Resource specification. The documentation for the operator can be 
 accessed from the link [https://ibm.github.io/datapower-operator-doc/](https://ibm.github.io/datapower-operator-doc/). 
 
